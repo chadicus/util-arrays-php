@@ -787,4 +787,30 @@ final class ArraysTest extends \PHPUnit_Framework_TestCase
         A::nullifyEmptyStrings($array);
         $this->assertSame([], $array);
     }
+
+    /**
+     * Verify basic behavior of getFirstNotNull().
+     *
+     * @test
+     * @covers ::getFirstNotNull
+     *
+     * @return void
+     */
+    public function getFirstNotNull()
+    {
+        $this->assertSame('foo', A::getFirstNotNull([null, 'foo','bar']));
+    }
+
+    /**
+     * Verify behavior of getFirstNotNull() when $input contains no not-null values.
+     *
+     * @test
+     * @covers ::getFirstNotNull
+     *
+     * @return void
+     */
+    public function getFirstNotNullAllNull()
+    {
+        $this->assertNull(A::getFirstNotNull([null, null, null]));
+    }
 }

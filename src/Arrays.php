@@ -411,4 +411,22 @@ final class Arrays
             }
         }
     }
+
+    /**
+     * Returns the first not null element from the given array.
+     *
+     * @param array $input The array containing elements.
+     *
+     * @return mixed The first not null value or null if all elements are null.
+     */
+    public static function getFirstNotNull(array $input)
+    {
+        foreach ($input as $value) {
+            if ($value !== null) {
+                return $value;
+            }
+        }
+
+        return null;
+    }
 }
